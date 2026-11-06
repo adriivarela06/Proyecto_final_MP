@@ -1,8 +1,13 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(asteroides VERSION 0.1.0 LANGUAGES C CXX)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+
 include(../bigs/bigs.cmake)
+
 include_directories(../bigs)
 include_directories(Bitmaps)
+
 add_library(particulas Particula.cpp Vector2D.cpp matematicas.cpp listaparticulas.cpp)
 
 add_executable(testparticula testparticula.cpp)

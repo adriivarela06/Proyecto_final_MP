@@ -13,10 +13,8 @@ set(BIGS_INC ${BIGS_DIR_ABS}/include)
 set(BIGS_LOCATION ${BIGS_DIR_ABS}/lib/libbigs.a)
 
 # Localizar biblioteca Allegro
-find_package(Allegro)
-include(${Allegro_DIR}/AllegroTargets.cmake)
-#set(LIBALLEGRO Allegro::allegro Allegro::allegro_main Allegro::allegro_primitives Allegro::allegro_ttf Allegro::allegro_image)
-set(LIBALLEGRO Allegro::allegro Allegro::allegro_main Allegro::allegro_primitives Allegro::allegro_image Allegro::allegro_ttf Allegro::allegro_audio  Allegro::allegro_acodec)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(ALLEGRO REQUIRED allegro-5 allegro_main-5 allegro_primitives-5 allegro_image-5 allegro_font-5 allegro_ttf-5 allegro_audio-5 allegro_acodec-5)
 
 # Añadir biblioteca BiGS
 add_library(bigs STATIC IMPORTED)
@@ -31,4 +29,4 @@ include_directories(${BIGS_INC})
 link_directories(${BIGS_LIB})
 
 # Añadir dependencia para que al incluir BiGS se incluya también Allegro
-target_link_libraries(bigs INTERFACE ${LIBALLEGRO})
+target_link_libraries(bigs INTERFACE ${ALLEGRO_LIBRARIES})

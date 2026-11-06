@@ -1,5 +1,6 @@
 #include "listaparticulas.h"
 #include <fstream>
+#include <allegro5/allegro.h>  //Línea añadida en un futuro debido a incompatibilidades con versiones de Ubuntu
 
 ///////////////////////////////////////////////////////////////////   Funciones para modularizar el codigo   ///////////////////////////////////////////////////////////////////
 
@@ -64,6 +65,7 @@ void inicializa_ast(ListaParticulas &particulas, int max, int Ancho, int Alto){
 ///////////////////////////////////////////////////////////////////   Main asteroides   ///////////////////////////////////////////////////////////////////
 
 int main (int argc, char **argv){
+    al_init();  //Línea añadida en un futuro debido a incompatibilidades con versiones de Ubuntu   
     srand(time(0));
     int Ancho = 800,
         Alto = 600,
