@@ -32,15 +32,6 @@ Si utilizas el script de compilación rápida:
 ./compilar.sh
 ```
 
-### Opción 2: Compilación manual con CMake
-```bash
-# 1. Crear y configurar la carpeta de compilación
-cmake -B build
-
-# 2. Compilar todos los ejecutables
-cmake --build build
-```
-
 Una vez finalizada la compilación, los ejecutables finales se generarán automáticamente dentro del directorio **`bin/`**.
 
 ---
@@ -99,19 +90,3 @@ Junto al juego principal se compilan varios programas de prueba para verificar m
   Herramienta por terminal para consultar y ordenar las puntuaciones guardadas en un archivo.
 * **`./bin/testparticula`**, **`./bin/testlista`**, **`./bin/testsobrecarga`**  
   Baterías de pruebas unitarias para verificar la clase `Vector2D`, la gestión de memoria de `ListaParticulas` y las operaciones aritméticas sobrecargadas.
-
----
-
-## 📁 Estructura del Proyecto
-
-```text
-├── CMakeLists.txt        # Configuración principal de compilación CMake
-├── data/                 # Texturas, fuentes tipográficas y efectos de audio
-├── bigs/                 # Biblioteca gráfica BiGS (cabeceras y librería estática)
-├── asteroides.cpp        # Ciclo principal del juego y lógica de estados
-├── Particula.cpp / .h    # Entidad física con cinemática y detección de colisiones
-├── Vector2D.cpp / .h     # Manejo de vectores cartesianos/polares y operadores
-├── listaparticulas.cpp   # Vector dinámico y gestor de entidades
-├── marcadores.cpp / .h   # Gestión interna de puntuaciones y clasificación
-└── bin/                  # Directorio de salida con los binarios listos para ejecutar
-```
